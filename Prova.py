@@ -1,43 +1,51 @@
-def build_large_string():
-    result = ""
-    for i in range(10000):
-        result += str(i) + ","
-    return result
+def somma_lista(nums):
+    total = 0
+    for i in range(len(nums)):
+        total += nums[i]
+    return total
 
 
-token = "default"
+def trova_pari(nums):
+    risultati = []
+    for num in nums:
+        if num % 2 == 0:
+            risultati.append(num)
+        else:
+            continue
+    return risultati
 
-def update_token():
-    token = get_new_token()  # This will not affect the global token variable
-    print("Token updated:", token)
-
-def get_new_token():
-    return "new_token_value"
-
-import subprocess
-
-def run_backup(path):
-    command = f"tar -czf backup.tar.gz {path}"
-    subprocess.call(command, shell=True)
-
-
-def parse_number(val):
-    if val is not None:
-        try:
-            return int(val)
-        except ValueError:
-            return None
+def fibonacci(n):
+    if n <= 1:
+        return n
     else:
-        return None
+        return fibonacci(n-1) + fibonacci(n-2)
 
+def conta_parole(file_path):
+    file = open(file_path, 'r')
+    contenuto = file.read()
+    parole = contenuto.split()
+    file.close()
+    return len(parole)
 
-def risky_operation():
-    try:
-        result = do_something_critical()
-        return result
-    except:
-        return None
+import threading
 
-def do_something_critical():
-    # Simulating a critical operation that might fail
-    raise Exception("Critical failure occurred!")
+class Contatore:
+    def __init__(self):
+        self.valore = 0
+
+    def incrementa(self):
+        for _ in range(100000):
+            self.valore += 1
+
+contatore = Contatore()
+
+thread1 = threading.Thread(target=contatore.incrementa)
+thread2 = threading.Thread(target=contatore.incrementa)
+
+thread1.start()
+thread2.start()
+
+thread1.join()
+thread2.join()
+
+print(contatore.valore)
