@@ -1,0 +1,56 @@
+public class StringConcat {
+    public String inefficientConcat(String[] words) {
+        String result = "";
+        for (String word : words) {
+            result += word;
+        }
+        return result;
+    }
+}
+
+import java.io.*;
+
+public class FileReaderExample {
+    public void readFile(String fileName) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+    }
+}
+
+public class Counter {
+    private int count = 0;
+
+    public void increment() {
+        int temp = count;
+        temp = temp + 1;
+        count = temp;
+    }
+}
+
+public class DiscountCalculator {
+    public double calculateDiscount(double price, int age) {
+        if (age < 18) {
+            return price * 0.9;
+        } else if (age >= 65) {
+            return price * 0.95;
+        }
+        return price * 0.95;
+    }
+}
+
+import java.lang.reflect.Method;
+
+public class Reflector {
+    public void invokeMethod(Object obj, String methodName) {
+        try {
+            Method method = obj.getClass().getDeclaredMethod(methodName);
+            method.setAccessible(true);
+            method.invoke(obj);
+        } catch (Exception e) {
+            // silenzio completo sugli errori
+        }
+    }
+}
