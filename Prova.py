@@ -75,3 +75,9 @@ def dispari(n):
         return pari(n - 1)
 
 print("Risultato:", pari(5))
+def conta_parole_da_input(percorso):
+    file = open(percorso, 'r')  # RISCHIO: input non validato + risorsa non protetta
+    contenuto = file.read()
+    parole = contenuto.split()
+    file.close()
+    return len(parole)
