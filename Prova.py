@@ -43,18 +43,43 @@ def duplicate_logic_1(numbers):
             squared.append(n * n)
     return squared
 
-def duplicate_logic_2(numbers):
-    squared = []
-    for n in numbers:
-        if n > 0:
-            squared.append(n * n)
-    return squared
+def is_even(n):
+    if n == 0:
+        return True
+    else:
+        return is_odd(n - 1)
 
-# Chiamate di esempio
+def is_odd(n):
+    if n == 0:
+        return False
+    else:
+        return is_even(n - 1)
+
+def A(n):
+    if n <= 0:
+        return "A"
+    return B(n - 1)
+
+def B(n):
+    if n <= 0:
+        return "B"
+    return C(n - 1)
+
+def C(n):
+    if n <= 0:
+        return "C"
+    return A(n - 1)
+
+def is_positive(n):
+    return not is_negative(n)
+
+def is_negative(n):
+    return not is_zero(n) and not is_positive(n - 1)
+
+def is_zero(n):
+    return n == 0
+
 if __name__ == "__main__":
-    print(unsafe_eval("2 + 2"))
-    print(slow_loop())
-    print(calculate_average([1, 2, 3]))
-    print(tricky_logic([2, 4, 6, 1, 2, 2, 3]))
-    print(duplicate_logic_1([1, -1, 2]))
-    print(duplicate_logic_2([3, -2, 4]))
+    print("is_even(4):", is_even(4))
+    print("A(5):", A(5))
+    print("is_positive(2):", is_positive(2))
