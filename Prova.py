@@ -90,17 +90,3 @@ def C(n):
     if n <= 0:
         return "C"
     return A(n - 1)
-
-def is_positive(n):
-    return not is_negative(n)
-
-def is_negative(n):
-    return not is_zero(n) and not is_positive(n - 1)
-
-def is_zero(n):
-    return n == 0
-
-if __name__ == "__main__":
-    print("is_even(4):", is_even(4))
-    print("A(5):", A(5))
-    print("is_positive(2):", is_positive(2))
