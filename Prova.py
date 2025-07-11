@@ -19,9 +19,6 @@ def duplicate_logic_2(numbers):
             squared.append(n * n)
     return squared
 
-
-
-
 # Funzione con pratica non ottimale: uso non sicuro di eval()
 def unsafe_eval(user_input):
     # Potenziale vulnerabilità: CodeGuru dovrebbe segnalarla
