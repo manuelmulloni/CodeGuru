@@ -1,6 +1,27 @@
 import time
 import random
 
+def conta_parole_da_input(percorso):
+    file = open(percorso, 'r')  # RISCHIO: input non validato + risorsa non protetta
+    contenuto = file.read()
+    parole = contenuto.split()
+    file.close()
+    return len(parole)
+
+def unsafe_eval(user_input):
+    # Potenziale vulnerabilità: CodeGuru dovrebbe segnalarla
+    return eval(user_input)
+
+def duplicate_logic_2(numbers):
+    squared = []
+    for n in numbers:
+        if n > 0:
+            squared.append(n * n)
+    return squared
+
+
+
+
 # Funzione con pratica non ottimale: uso non sicuro di eval()
 def unsafe_eval(user_input):
     # Potenziale vulnerabilità: CodeGuru dovrebbe segnalarla
